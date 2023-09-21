@@ -33,6 +33,7 @@ struct NewViewStateListView: View {
             .refreshable {
                 await viewModel.onRefresh()
             }
+            .navigationTitle("List view sample")
         }
     }
     

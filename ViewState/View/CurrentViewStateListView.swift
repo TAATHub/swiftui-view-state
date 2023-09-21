@@ -22,6 +22,7 @@ struct CurrentViewStateListView: View {
         .refreshable {
             await viewModel.onRefresh()
         }
+        .navigationTitle("List view sample")
     }
     
     private func listView(items: [Item], redacted: Bool) -> some View {

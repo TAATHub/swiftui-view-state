@@ -24,6 +24,7 @@ struct NewViewStateSimpleView: View {
             .task {
                 await viewModel.onTask()
             }
+            .navigationTitle("Simple view sample")
         }
     }
     

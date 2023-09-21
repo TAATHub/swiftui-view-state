@@ -8,7 +8,6 @@ enum CurrentViewState {
 }
 
 enum NewViewState<V, E: Error> {
-    case initial
     case loading(V)
     case success(V)
     case empty
