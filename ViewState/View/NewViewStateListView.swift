@@ -16,7 +16,7 @@ struct NewViewStateListView: View {
                 case .pagingFailure(let items):
                     listView(items: items, redacted: false)
                     footerErrorView()
-                case .initial, .empty:
+                case .empty:
                     emptyView(proxy)
                 case .loading(let items):
                     listView(items: items, redacted: true)

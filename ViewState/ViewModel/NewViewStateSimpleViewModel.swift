@@ -2,13 +2,9 @@ import Foundation
 
 @MainActor
 final class NewViewStateSimpleViewModel: ObservableObject {
-    @Published var viewState: NewViewState<Item, CustomError> = .initial
+    @Published var viewState: NewViewState<Item, CustomError> = .loading(dummyItem())
     
     func onTask() async {
-        guard !viewState.isLoading else { return }
-        
-        viewState = .loading(Self.dummyItem())
-        
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         
         // データ取得成功の場合

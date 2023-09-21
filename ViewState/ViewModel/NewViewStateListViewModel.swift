@@ -2,16 +2,12 @@ import Foundation
 
 @MainActor
 final class NewViewStateListViewModel: ObservableObject, Pageable {
-    @Published var viewState: NewViewState<[Item], CustomError> = .initial
+    @Published var viewState: NewViewState<[Item], CustomError> = .loading(dummyItems())
     var pageToken: String?
     
     private var items = [Item]()
     
     func onTask() async {
-        guard !viewState.isLoading else { return }
-        
-        viewState = .loading(Self.dummyItems())
-        
         try? await Task.sleep(nanoseconds: 1_000_000_000)
         
         // データ取得成功の場合
